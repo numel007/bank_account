@@ -12,8 +12,16 @@ class BankAccount:
         print(f"Amount Deposited: ${amount}")
         return self.balance
 
-    # def withdraw(self, amount):
-
+    def withdraw(self, amount):
+        if amount > self.balance:
+            self.balance -= 10
+            print(f"Insufficient funds to withdraw ${amount}")
+            print(f"Overcharge fee: $10")
+            print(f"New balance: ${self.balance}")
+        else:
+            self.balance -= amount
+            print(f"Amount Withdrawn: ${amount}")
+            print(f"New Balance: ${self.balance}")
 
     # def get_balance(self):
 
@@ -25,11 +33,9 @@ class BankAccount:
     
 
 person1 = BankAccount("Jackie", 1, 11, 100) 
-person2 = BankAccount("Ben", 2, 22, 200 )
+person2 = BankAccount("Ben", 2, 22, 200)
 person3 = BankAccount("Jeremiah", 3, 33, 300)
 
-print(person1.balance)
+print(person2.balance)
 
-person1.deposit(int(input("Input deposit amount here: ")))
-
-print(person1.balance)
+person2.withdraw(int(input("Input withdrawal amount here: ")))
