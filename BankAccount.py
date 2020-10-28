@@ -23,8 +23,9 @@ class BankAccount:
             print(f"Amount Withdrawn: ${amount}")
             print(f"New Balance: ${self.balance}")
 
-    # def get_balance(self):
-
+    def get_balance(self):
+        print(f"You currently have an account balance of: ${self.balance}")
+        return self.balance
 
     # def add_interest(self, balance):
 
@@ -39,3 +40,5 @@ person3 = BankAccount("Jeremiah", 3, 33, 300)
 print(person2.balance)
 
 person2.withdraw(int(input("Input withdrawal amount here: ")))
+
+person2.get_balance()
