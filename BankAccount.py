@@ -164,9 +164,9 @@ def atmOptions():
 # ------------------ Testing methods ------------------
 
 # Initialize 3 users with predefined BankAccount variables
-Tom = BankAccount("Tom", 11111111, 1111111111, 0)
-Bob = BankAccount("Bob", 22222222, 22222222, 2)
-Hubert = BankAccount("Hubert Blaine Wolfeschlegel­steinhausen­bergerdorff­vor­altern­waren­gewissenhaft­schafers­wessen­schafts­waren­wohl­gefuttern­und­sorgfaltigkeit­beschutzen­vor­angreifen­durch­ihr­raubgierig­fiends Sr.", 33333333, 33333333, 300)
+Tom = BankAccount("Tom Hanks", 12345678, 1111111111, 0)
+Bob = BankAccount("Bob Ross", 23456789, 22222222, 0)
+Hubert = BankAccount("Hubert Blaine Wolfeschlegel­steinhausen­bergerdorff­vor­altern­waren­gewissenhaft­schafers­wessen­schafts­waren­wohl­gefuttern­und­sorgfaltigkeit­beschutzen­vor­angreifen­durch­ihr­raubgierig­fiends Sr.", 34567890, 33333333, 0)
 atmUsageFee = 2
 
 # Give each account a starting balance, so test methods and functions can be called
