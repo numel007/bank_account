@@ -68,13 +68,13 @@ def deposit(user, route_num):
     """Selects from list of known users and runs deposit method"""
     while True:
         if user == Tom.full_name and route_num == Tom.account_number:
-            Tom.deposit(int(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
+            Tom.deposit(float(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
             break
         elif user == Bob.full_name and route_num == Bob.account_number:
-            Bob.deposit(int(input(f"Hello {Bob.full_name}. Input deposit amount: $")))
+            Bob.deposit(float(input(f"Hello {Bob.full_name}. Input deposit amount: $")))
             break
         elif user == Hubert.full_name and route_num == Hubert.account_number:
-            Hubert.deposit(int(input(f"Hello {Hubert.full_name}. Input deposit amount: $")))
+            Hubert.deposit(float(input(f"Hello {Hubert.full_name}. Input deposit amount: $")))
             break
         else:
             print("No matching user found")
@@ -85,13 +85,13 @@ def withdraw(user, route_num):
     """Selects from list of known users and runs withdrawal method"""
     while True:
         if user == Tom.full_name and route_num == Tom.account_number:
-            Tom.withdraw(int(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
+            Tom.withdraw(float(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
             break
         elif user == Bob.full_name and route_num == Bob.account_number:
-            Bob.withdraw(int(input(f"Hello {Bob.full_name}. Input withdrawal amount: $")))
+            Bob.withdraw(float(input(f"Hello {Bob.full_name}. Input withdrawal amount: $")))
             break
         elif user == Hubert.full_name and route_num == Hubert.account_number:
-            Hubert.withdraw(int(input(f"Hello {Hubert.full_name}. Input withdrawal amount: $")))
+            Hubert.withdraw(float(input(f"Hello {Hubert.full_name}. Input withdrawal amount: $")))
             break
         else:
             print("No matching user found")
@@ -179,8 +179,8 @@ Hubert.balance = 300
 
 # Tom method calls
 try: 
-    Tom.deposit(int(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
-    Tom.withdraw(int(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
+    Tom.deposit(float(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
+    Tom.withdraw(float(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
     Tom.get_balance()
     Tom.add_interest()
     Tom.print_receipt()
@@ -189,8 +189,8 @@ except ValueError:
 
 # Bob method calls
 try:
-    Bob.deposit(int(input(f"Hello {Bob.full_name}. Input deposit amount: $")))
-    Bob.withdraw(int(input(f"Hello {Bob.full_name}. Input withdrawal amount: $")))
+    Bob.deposit(float(input(f"Hello {Bob.full_name}. Input deposit amount: $")))
+    Bob.withdraw(float(input(f"Hello {Bob.full_name}. Input withdrawal amount: $")))
     Bob.get_balance()
     Bob.add_interest()
     Bob.print_receipt()
@@ -199,8 +199,8 @@ except ValueError:
 
 # Hubert method calls
 try: 
-    Hubert.deposit(int(input(f"Hello {Hubert.full_name}. Input deposit amount: $")))
-    Hubert.withdraw(int(input(f"Hello {Hubert.full_name}. Input withdrawal amount: $")))
+    Hubert.deposit(float(input(f"Hello {Hubert.full_name}. Input deposit amount: $")))
+    Hubert.withdraw(float(input(f"Hello {Hubert.full_name}. Input withdrawal amount: $")))
     Hubert.get_balance()
     Hubert.add_interest()
     Hubert.print_receipt()
