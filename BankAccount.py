@@ -174,26 +174,26 @@ Tom.balance = 100
 Bob.balance = 200
 Hubert.balance = 300
 
-# Person1 method calls
-# Tom.deposit(int(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
-# Tom.withdraw(int(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
-# Tom.get_balance()
-# Tom.add_interest()
-# Tom.print_receipt()
+# Tom method calls
+Tom.deposit(int(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
+Tom.withdraw(int(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
+Tom.get_balance()
+Tom.add_interest()
+Tom.print_receipt()
 
-# Person2 method calls
-# Bob.deposit(int(input(f"Hello {Bob.full_name}. Input deposit amount: $")))
-# Bob.withdraw(int(input(f"Hello {Bob.full_name}. Input withdrawal amount: $")))
-# Bob.get_balance()
-# Bob.add_interest()
-# Bob.print_receipt()
+# Bob method calls
+Bob.deposit(int(input(f"Hello {Bob.full_name}. Input deposit amount: $")))
+Bob.withdraw(int(input(f"Hello {Bob.full_name}. Input withdrawal amount: $")))
+Bob.get_balance()
+Bob.add_interest()
+Bob.print_receipt()
 
-# Person3 method calls
-# Hubert.deposit(int(input(f"Hello {Hubert.full_name}. Input deposit amount: $")))
-# Hubert.withdraw(int(input(f"Hello {Hubert.full_name}. Input withdrawal amount: $")))
-# Hubert.get_balance()
-# Hubert.add_interest()
-# Hubert.print_receipt()
+# Hubert method calls
+Hubert.deposit(int(input(f"Hello {Hubert.full_name}. Input deposit amount: $")))
+Hubert.withdraw(int(input(f"Hello {Hubert.full_name}. Input withdrawal amount: $")))
+Hubert.get_balance()
+Hubert.add_interest()
+Hubert.print_receipt()
 
-# chooseUser(input("Input name: "), int(input("Input account number: ")))
-atmOptions()
+# Run ATM simulation - uncomment to use
+# atmOptions()
