@@ -174,26 +174,39 @@ Tom.balance = 100
 Bob.balance = 200
 Hubert.balance = 300
 
+
+# Experimenting with try/except in below method calls. I am aware of the poor implementation.
+
 # Tom method calls
-Tom.deposit(int(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
-Tom.withdraw(int(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
-Tom.get_balance()
-Tom.add_interest()
-Tom.print_receipt()
+try: 
+    Tom.deposit(int(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
+    Tom.withdraw(int(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
+    Tom.get_balance()
+    Tom.add_interest()
+    Tom.print_receipt()
+except ValueError:
+    print("Invalid input")
 
 # Bob method calls
-Bob.deposit(int(input(f"Hello {Bob.full_name}. Input deposit amount: $")))
-Bob.withdraw(int(input(f"Hello {Bob.full_name}. Input withdrawal amount: $")))
-Bob.get_balance()
-Bob.add_interest()
-Bob.print_receipt()
+try:
+    Bob.deposit(int(input(f"Hello {Bob.full_name}. Input deposit amount: $")))
+    Bob.withdraw(int(input(f"Hello {Bob.full_name}. Input withdrawal amount: $")))
+    Bob.get_balance()
+    Bob.add_interest()
+    Bob.print_receipt()
+except ValueError:
+    print("Invalid input")
 
 # Hubert method calls
-Hubert.deposit(int(input(f"Hello {Hubert.full_name}. Input deposit amount: $")))
-Hubert.withdraw(int(input(f"Hello {Hubert.full_name}. Input withdrawal amount: $")))
-Hubert.get_balance()
-Hubert.add_interest()
-Hubert.print_receipt()
+try: 
+    Hubert.deposit(int(input(f"Hello {Hubert.full_name}. Input deposit amount: $")))
+    Hubert.withdraw(int(input(f"Hello {Hubert.full_name}. Input withdrawal amount: $")))
+    Hubert.get_balance()
+    Hubert.add_interest()
+    Hubert.print_receipt()
+except ValueError:
+    print("Invalid input")
+
 
 # Run ATM simulation - uncomment to use
 # atmOptions()
