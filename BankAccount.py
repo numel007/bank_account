@@ -68,6 +68,7 @@ class BankAccount:
 
 # Called to create an 8 digit account number
 def createAccNum():
+    """8 digit account number generator"""
     acc_num = ""
     for i in range(8):
         acc_num += str(randint(0, 9))
@@ -76,79 +77,103 @@ def createAccNum():
 # ------------------ ATM Functions ------------------
 
 # Deposit function for atmOptions
-def deposit(user, acc_num):
+def deposit():
     """Selects from list of known users and runs deposit method"""
     while True:
+        user = input("Input name: ")
+        acc_num = int(input("Input account number: "))
         if user == Tom.full_name and acc_num == Tom.account_number:
+            print("\n")
             Tom.deposit(
                 float(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
             break
         elif user == Bob.full_name and acc_num == Bob.account_number:
+            print("\n")
             Bob.deposit(
                 float(input(f"Hello {Bob.full_name}. Input deposit amount: $")))
             break
         elif user == Hubert.full_name and acc_num == Hubert.account_number:
+            print("\n")
             Hubert.deposit(
                 float(input(f"Hello {Hubert.full_name}. Input deposit amount: $")))
             break
         else:
+            print("\n")
             print("No matching user found")
             continue
     print("Exiting ATM")
 
 # Withdraw function for atmOptions
-def withdraw(user, acc_num):
+def withdraw():
     """Selects from list of known users and runs withdrawal method"""
     while True:
+        user = input("Input name: ")
+        acc_num = int(input("Input account number: "))
         if user == Tom.full_name and acc_num == Tom.account_number:
+            print("\n")
             Tom.withdraw(
                 float(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
             break
         elif user == Bob.full_name and acc_num == Bob.account_number:
+            print("\n")
             Bob.withdraw(
                 float(input(f"Hello {Bob.full_name}. Input withdrawal amount: $")))
             break
         elif user == Hubert.full_name and acc_num == Hubert.account_number:
+            print("\n")
             Hubert.withdraw(
                 float(input(f"Hello {Hubert.full_name}. Input withdrawal amount: $")))
             break
         else:
+            print("\n")
             print("No matching user found")
             continue
     print("Exiting ATM")
 
 # Balance function for atmOptions
-def balance(user, acc_num):
+def balance():
     """Selects from list of known users and runs get_balance method"""
     while True:
+        user = input("Input name: ")
+        acc_num = int(input("Input account number: "))
         if user == Tom.full_name and acc_num == Tom.account_number:
+            print("\n")
             Tom.get_balance()
             break
         elif user == Bob.full_name and acc_num == Bob.account_number:
+            print("\n")
             Bob.get_balance()
             break
         elif user == Hubert.full_name and acc_num == Hubert.account_number:
+            print("\n")
             Hubert.get_balance()
             break
         else:
+            print("\n")
             print("No matching user found")
             continue
     print("Exiting ATM")
 
 # Account details function for atmOptions
-def accDetails(user, acc_num):
+def accDetails():
     """Selects from list of known users and runs get_balance method"""
     while True:
+        user = input("Input name: ")
+        acc_num = int(input("Input account number: "))
         if user == Tom.full_name and acc_num == Tom.account_number:
+            print("\n")
             Tom.print_receipt()
             break
         elif user == Bob.full_name and acc_num == Bob.account_number:
+            print("\n")
             Bob.print_receipt()
             break
         elif user == Hubert.full_name and acc_num == Hubert.account_number:
+            print("\n")
             Hubert.print_receipt()
             break
         else:
+            print("\n")
             print("No matching user found")
             continue
     print("Exiting ATM")
@@ -161,26 +186,22 @@ def atmOptions():
         if option_selected == 1:
             print("Deposit selected")
             print("--------------------\n")
-            deposit(input("Input name: "), int(
-                input("Input account number: ")))
+            deposit()
             break
         elif option_selected == 2:
             print("Withdrawal selected")
             print("--------------------\n")
-            withdraw(input("Input name: "), int(
-                input("Input account number: ")))
+            withdraw()
             break
         elif option_selected == 3:
             print("Current Balance selected")
             print("--------------------\n")
-            balance(input("Input name: "), int(
-                input("Input account number: ")))
+            balance()
             break
         elif option_selected == 4:
             print("Account details selected")
             print("--------------------\n")
-            accDetails(input("Input name: "), int(
-                input("Input account number: ")))
+            accDetails()
             break
         else:
             print("Invalid option")
@@ -205,14 +226,14 @@ Hubert.balance = 300
 # Experimenting below with try/except in below method calls. I am aware of the poor implementation.
 
 #Tom method calls
-try:
-    Tom.deposit(float(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
-    Tom.withdraw(float(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
-    Tom.get_balance()
-    Tom.add_interest()
-    Tom.print_receipt()
-except ValueError:
-    print("Invalid input")
+# try:
+#     Tom.deposit(float(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
+#     Tom.withdraw(float(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
+#     Tom.get_balance()
+#     Tom.add_interest()
+#     Tom.print_receipt()
+# except ValueError:
+#     print("Invalid input")
 
 # # Bob method calls
 # try:
@@ -236,5 +257,5 @@ except ValueError:
 
 
 # Run ATM simulation - uncomment to use
-# print(Bob.account_number)
-# atmOptions()
+print(Tom.account_number)
+atmOptions()
