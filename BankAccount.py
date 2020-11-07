@@ -50,8 +50,8 @@ class BankAccount:
         """Adds 1 month's interest to user's balance, calculated from current balance at rate of 0.00083"""
         print(f"Current balance: ${self.balance}")
         interest = self.balance * 0.00083
-        self.balance += interest
-        print(f"Interest: ${interest}")
+        self.balance += round(interest, 2)
+        print(f"Interest: ${round(interest, 2)}")
         print(f"New balance: ${self.balance}")
         print("\n")
 
@@ -76,18 +76,18 @@ def createAccNum():
 # ------------------ ATM Functions ------------------
 
 # Deposit function for atmOptions
-def deposit(user, route_num):
+def deposit(user, acc_num):
     """Selects from list of known users and runs deposit method"""
     while True:
-        if user == Tom.full_name and route_num == Tom.account_number:
+        if user == Tom.full_name and acc_num == Tom.account_number:
             Tom.deposit(
                 float(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
             break
-        elif user == Bob.full_name and route_num == Bob.account_number:
+        elif user == Bob.full_name and acc_num == Bob.account_number:
             Bob.deposit(
                 float(input(f"Hello {Bob.full_name}. Input deposit amount: $")))
             break
-        elif user == Hubert.full_name and route_num == Hubert.account_number:
+        elif user == Hubert.full_name and acc_num == Hubert.account_number:
             Hubert.deposit(
                 float(input(f"Hello {Hubert.full_name}. Input deposit amount: $")))
             break
@@ -97,18 +97,18 @@ def deposit(user, route_num):
     print("Exiting ATM")
 
 # Withdraw function for atmOptions
-def withdraw(user, route_num):
+def withdraw(user, acc_num):
     """Selects from list of known users and runs withdrawal method"""
     while True:
-        if user == Tom.full_name and route_num == Tom.account_number:
+        if user == Tom.full_name and acc_num == Tom.account_number:
             Tom.withdraw(
                 float(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
             break
-        elif user == Bob.full_name and route_num == Bob.account_number:
+        elif user == Bob.full_name and acc_num == Bob.account_number:
             Bob.withdraw(
                 float(input(f"Hello {Bob.full_name}. Input withdrawal amount: $")))
             break
-        elif user == Hubert.full_name and route_num == Hubert.account_number:
+        elif user == Hubert.full_name and acc_num == Hubert.account_number:
             Hubert.withdraw(
                 float(input(f"Hello {Hubert.full_name}. Input withdrawal amount: $")))
             break
@@ -118,16 +118,16 @@ def withdraw(user, route_num):
     print("Exiting ATM")
 
 # Balance function for atmOptions
-def balance(user, route_num):
+def balance(user, acc_num):
     """Selects from list of known users and runs get_balance method"""
     while True:
-        if user == Tom.full_name and route_num == Tom.account_number:
+        if user == Tom.full_name and acc_num == Tom.account_number:
             Tom.get_balance()
             break
-        elif user == Bob.full_name and route_num == Bob.account_number:
+        elif user == Bob.full_name and acc_num == Bob.account_number:
             Bob.get_balance()
             break
-        elif user == Hubert.full_name and route_num == Hubert.account_number:
+        elif user == Hubert.full_name and acc_num == Hubert.account_number:
             Hubert.get_balance()
             break
         else:
@@ -136,16 +136,16 @@ def balance(user, route_num):
     print("Exiting ATM")
 
 # Account details function for atmOptions
-def accDetails(user, route_num):
+def accDetails(user, acc_num):
     """Selects from list of known users and runs get_balance method"""
     while True:
-        if user == Tom.full_name and route_num == Tom.account_number:
+        if user == Tom.full_name and acc_num == Tom.account_number:
             Tom.print_receipt()
             break
-        elif user == Bob.full_name and route_num == Bob.account_number:
+        elif user == Bob.full_name and acc_num == Bob.account_number:
             Bob.print_receipt()
             break
-        elif user == Hubert.full_name and route_num == Hubert.account_number:
+        elif user == Hubert.full_name and acc_num == Hubert.account_number:
             Hubert.print_receipt()
             break
         else:
@@ -204,15 +204,15 @@ Hubert.balance = 300
 
 # Experimenting below with try/except in below method calls. I am aware of the poor implementation.
 
-# Tom method calls
-# try:
-#     Tom.deposit(float(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
-#     Tom.withdraw(float(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
-#     Tom.get_balance()
-#     Tom.add_interest()
-#     Tom.print_receipt()
-# except ValueError:
-#     print("Invalid input")
+#Tom method calls
+try:
+    Tom.deposit(float(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
+    Tom.withdraw(float(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
+    Tom.get_balance()
+    Tom.add_interest()
+    Tom.print_receipt()
+except ValueError:
+    print("Invalid input")
 
 # # Bob method calls
 # try:
@@ -236,7 +236,5 @@ Hubert.balance = 300
 
 
 # Run ATM simulation - uncomment to use
+# print(Bob.account_number)
 # atmOptions()
-
-print(Bob.account_number)
-Bob.print_receipt()
