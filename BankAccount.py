@@ -1,6 +1,9 @@
+from random import randint
+
+# BankAccount class creation
 class BankAccount:
 
-    # BankAccount class created with instance variables
+    # BankAccount instance variables
     def __init__(self, full_name, account_number, routing_number, balance):
         self.full_name = full_name
         self.account_number = account_number
@@ -62,42 +65,59 @@ class BankAccount:
         print(f"Balance: ${self.balance}")
         print("\n")
 
+
+# Called to create an 8 digit account number
+def createAccNum():
+    acc_num = ""
+    for i in range(8):
+        acc_num += str(randint(0, 9))
+    return int(acc_num)
+
 # ------------------ ATM Functions ------------------
 
+# Deposit function for atmOptions
 def deposit(user, route_num):
     """Selects from list of known users and runs deposit method"""
     while True:
         if user == Tom.full_name and route_num == Tom.account_number:
-            Tom.deposit(float(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
+            Tom.deposit(
+                float(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
             break
         elif user == Bob.full_name and route_num == Bob.account_number:
-            Bob.deposit(float(input(f"Hello {Bob.full_name}. Input deposit amount: $")))
+            Bob.deposit(
+                float(input(f"Hello {Bob.full_name}. Input deposit amount: $")))
             break
         elif user == Hubert.full_name and route_num == Hubert.account_number:
-            Hubert.deposit(float(input(f"Hello {Hubert.full_name}. Input deposit amount: $")))
+            Hubert.deposit(
+                float(input(f"Hello {Hubert.full_name}. Input deposit amount: $")))
             break
         else:
             print("No matching user found")
             continue
     print("Exiting ATM")
 
+# Withdraw function for atmOptions
 def withdraw(user, route_num):
     """Selects from list of known users and runs withdrawal method"""
     while True:
         if user == Tom.full_name and route_num == Tom.account_number:
-            Tom.withdraw(float(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
+            Tom.withdraw(
+                float(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
             break
         elif user == Bob.full_name and route_num == Bob.account_number:
-            Bob.withdraw(float(input(f"Hello {Bob.full_name}. Input withdrawal amount: $")))
+            Bob.withdraw(
+                float(input(f"Hello {Bob.full_name}. Input withdrawal amount: $")))
             break
         elif user == Hubert.full_name and route_num == Hubert.account_number:
-            Hubert.withdraw(float(input(f"Hello {Hubert.full_name}. Input withdrawal amount: $")))
+            Hubert.withdraw(
+                float(input(f"Hello {Hubert.full_name}. Input withdrawal amount: $")))
             break
         else:
             print("No matching user found")
             continue
     print("Exiting ATM")
 
+# Balance function for atmOptions
 def balance(user, route_num):
     """Selects from list of known users and runs get_balance method"""
     while True:
@@ -115,6 +135,7 @@ def balance(user, route_num):
             continue
     print("Exiting ATM")
 
+# Account details function for atmOptions
 def accDetails(user, route_num):
     """Selects from list of known users and runs get_balance method"""
     while True:
@@ -132,28 +153,34 @@ def accDetails(user, route_num):
             continue
     print("Exiting ATM")
 
+# Decides which function to call on the input account
 def atmOptions():
     while True:
-        option_selected = int(input("Enter an option\n\n1) Deposit\n2) Withdraw\n3) Current Balance\n4) Account Details\n\nOption selected: "))
+        option_selected = int(input(
+            "Enter an option\n\n1) Deposit\n2) Withdraw\n3) Current Balance\n4) Account Details\n\nOption selected: "))
         if option_selected == 1:
             print("Deposit selected")
             print("--------------------\n")
-            deposit(input("Input name: "), int(input("Input account number: ")))
+            deposit(input("Input name: "), int(
+                input("Input account number: ")))
             break
         elif option_selected == 2:
             print("Withdrawal selected")
             print("--------------------\n")
-            withdraw(input("Input name: "), int(input("Input account number: ")))
+            withdraw(input("Input name: "), int(
+                input("Input account number: ")))
             break
         elif option_selected == 3:
             print("Current Balance selected")
             print("--------------------\n")
-            balance(input("Input name: "), int(input("Input account number: ")))
+            balance(input("Input name: "), int(
+                input("Input account number: ")))
             break
         elif option_selected == 4:
             print("Account details selected")
             print("--------------------\n")
-            accDetails(input("Input name: "), int(input("Input account number: ")))
+            accDetails(input("Input name: "), int(
+                input("Input account number: ")))
             break
         else:
             print("Invalid option")
@@ -164,49 +191,52 @@ def atmOptions():
 # ------------------ Testing methods ------------------
 
 # Initialize 3 users with predefined BankAccount variables
-Tom = BankAccount("Tom Hanks", 12345678, 1111111111, 0)
-Bob = BankAccount("Bob Ross", 23456789, 22222222, 0)
-Hubert = BankAccount("Hubert Blaine Wolfeschlegel­steinhausen­bergerdorff­vor­altern­waren­gewissenhaft­schafers­wessen­schafts­waren­wohl­gefuttern­und­sorgfaltigkeit­beschutzen­vor­angreifen­durch­ihr­raubgierig­fiends Sr.", 34567890, 33333333, 0)
+Tom = BankAccount("Tom Hanks", createAccNum(), 1111111111, 0)
+Bob = BankAccount("Bob Ross", createAccNum(), 22222222, 0)
+Hubert = BankAccount("Hubert Blaine Wolfeschlegel­steinhausen­bergerdorff­vor­altern­waren­gewissenhaft­schafers­wessen­schafts­waren­wohl­gefuttern­und­sorgfaltigkeit­beschutzen­vor­angreifen­durch­ihr­raubgierig­fiends Sr.", createAccNum(), 33333333, 0)
 atmUsageFee = 2
 
-# Give each account a starting balance, so test methods and functions can be called
+# Give each account a starting balance so test methods and functions can be called
 Tom.balance = 100
 Bob.balance = 200
 Hubert.balance = 300
 
 
-# Experimenting with try/except in below method calls. I am aware of the poor implementation.
+# Experimenting below with try/except in below method calls. I am aware of the poor implementation.
 
 # Tom method calls
-try: 
-    Tom.deposit(float(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
-    Tom.withdraw(float(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
-    Tom.get_balance()
-    Tom.add_interest()
-    Tom.print_receipt()
-except ValueError:
-    print("Invalid input")
+# try:
+#     Tom.deposit(float(input(f"Hello {Tom.full_name}. Input deposit amount: $")))
+#     Tom.withdraw(float(input(f"Hello {Tom.full_name}. Input withdrawal amount: $")))
+#     Tom.get_balance()
+#     Tom.add_interest()
+#     Tom.print_receipt()
+# except ValueError:
+#     print("Invalid input")
 
-# Bob method calls
-try:
-    Bob.deposit(float(input(f"Hello {Bob.full_name}. Input deposit amount: $")))
-    Bob.withdraw(float(input(f"Hello {Bob.full_name}. Input withdrawal amount: $")))
-    Bob.get_balance()
-    Bob.add_interest()
-    Bob.print_receipt()
-except ValueError:
-    print("Invalid input")
+# # Bob method calls
+# try:
+#     Bob.deposit(float(input(f"Hello {Bob.full_name}. Input deposit amount: $")))
+#     Bob.withdraw(float(input(f"Hello {Bob.full_name}. Input withdrawal amount: $")))
+#     Bob.get_balance()
+#     Bob.add_interest()
+#     Bob.print_receipt()
+# except ValueError:
+#     print("Invalid input")
 
-# Hubert method calls
-try: 
-    Hubert.deposit(float(input(f"Hello {Hubert.full_name}. Input deposit amount: $")))
-    Hubert.withdraw(float(input(f"Hello {Hubert.full_name}. Input withdrawal amount: $")))
-    Hubert.get_balance()
-    Hubert.add_interest()
-    Hubert.print_receipt()
-except ValueError:
-    print("Invalid input")
+# # Hubert method calls
+# try:
+#     Hubert.deposit(float(input(f"Hello {Hubert.full_name}. Input deposit amount: $")))
+#     Hubert.withdraw(float(input(f"Hello {Hubert.full_name}. Input withdrawal amount: $")))
+#     Hubert.get_balance()
+#     Hubert.add_interest()
+#     Hubert.print_receipt()
+# except ValueError:
+#     print("Invalid input")
 
 
 # Run ATM simulation - uncomment to use
 # atmOptions()
+
+print(Bob.account_number)
+Bob.print_receipt()
